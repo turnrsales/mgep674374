@@ -1,8 +1,4 @@
-
-<!DOCTYPE html>
-
-<html>
-<head>
+<html><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="" name="description"/>
@@ -38,32 +34,443 @@
         }
     </style>
 <link href="assets/css/custom-theme-colors.css" rel="stylesheet"/>
+<style>
+
+.seo-modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    z-index:999999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.seo-modal-box{
+    width:100%;
+    max-width:550px;
+    background:#fff;
+    border-radius:14px;
+    overflow:hidden;
+    font-family:'Quicksand', sans-serif;
+}
+
+.seo-modal-header{
+    padding:18px 22px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid #eee;
+}
+
+.seo-modal-header h3{
+    margin:0;
+    font-size:22px;
+    font-weight:700;
+}
+
+#closeSeoModal{
+    border:none;
+    background:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+.seo-modal-body{
+    padding:22px;
+}
+
+.seo-modal-body label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+.seo-modal-body textarea,
+.seo-modal-body input{
+    width:100%;
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:12px;
+    margin-bottom:18px;
+    outline:none;
+}
+
+.seo-modal-body textarea{
+    height:120px;
+    resize:none;
+}
+
+.seo-modal-footer{
+    padding:18px 22px;
+    display:flex;
+    justify-content:flex-end;
+    gap:12px;
+    border-top:1px solid #eee;
+}
+
+.seo-modal-footer button{
+    border:none;
+    padding:10px 22px;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:600;
+    color: #FFF;
+  background: #3b3b3b;
+}
+
+#saveSeoUpdate{
+    background:linear-gradient(135deg,#e39a4e,#fb1b1b);
+    color:#fff;
+}
+
+</style>
+<style id="aiModalSpinnerStyles">
+        .ai-modal-content {
+            position: relative;
+        }
+
+        /* Overlay blocks everything */
+        .ai-modal-spinner {
+            position: absolute;
+            inset: 0;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            z-index: 20;
+            backdrop-filter: blur(1.5px);
+            pointer-events: auto; /* blocks modal */
+        }
+
+        /* Spinner itself should NOT intercept clicks */
+        .ai-modal-spinner * {
+            pointer-events: none;
+        }
+
+        /* Close button MUST be above overlay */
+        .ai-close {
+            align-self: flex-start;
+            margin-right: auto; /* push left */
+            margin-left: 0;
+            z-index: 30;
+        }
+
+
+        /* Spinner styling */
+        .ai-spinner {
+            width: 42px;
+            height: 42px;
+            border: 4px solid rgba(0,0,0,0.25);
+            border-top-color: #000;
+            border-radius: 50%;
+            animation: aiSpin 0.9s linear infinite;
+        }
+
+        @keyframes aiSpin {
+            to { transform: rotate(360deg); }
+        }
+
+    </style>
+<style>
+
+.seo-modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    z-index:999999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.seo-modal-box{
+    width:100%;
+    max-width:550px;
+    background:#fff;
+    border-radius:14px;
+    overflow:hidden;
+    font-family:'Quicksand', sans-serif;
+}
+
+.seo-modal-header{
+    padding:18px 22px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid #eee;
+}
+
+.seo-modal-header h3{
+    margin:0;
+    font-size:22px;
+    font-weight:700;
+}
+
+#closeSeoModal{
+    border:none;
+    background:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+.seo-modal-body{
+    padding:22px;
+}
+
+.seo-modal-body label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+.seo-modal-body textarea,
+.seo-modal-body input{
+    width:100%;
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:12px;
+    margin-bottom:18px;
+    outline:none;
+}
+
+.seo-modal-body textarea{
+    height:120px;
+    resize:none;
+}
+
+.seo-modal-footer{
+    padding:18px 22px;
+    display:flex;
+    justify-content:flex-end;
+    gap:12px;
+    border-top:1px solid #eee;
+}
+
+.seo-modal-footer button{
+    border:none;
+    padding:10px 22px;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:600;
+    color: #FFF;
+  background: #3b3b3b;
+}
+
+#saveSeoUpdate{
+    background:linear-gradient(135deg,#e39a4e,#fb1b1b);
+    color:#fff;
+}
+
+</style>
+<style>
+
+.seo-modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    z-index:999999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.seo-modal-box{
+    width:100%;
+    max-width:550px;
+    background:#fff;
+    border-radius:14px;
+    overflow:hidden;
+    font-family:'Quicksand', sans-serif;
+}
+
+.seo-modal-header{
+    padding:18px 22px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid #eee;
+}
+
+.seo-modal-header h3{
+    margin:0;
+    font-size:22px;
+    font-weight:700;
+}
+
+#closeSeoModal{
+    border:none;
+    background:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+.seo-modal-body{
+    padding:22px;
+}
+
+.seo-modal-body label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+.seo-modal-body textarea,
+.seo-modal-body input{
+    width:100%;
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:12px;
+    margin-bottom:18px;
+    outline:none;
+}
+
+.seo-modal-body textarea{
+    height:120px;
+    resize:none;
+}
+
+.seo-modal-footer{
+    padding:18px 22px;
+    display:flex;
+    justify-content:flex-end;
+    gap:12px;
+    border-top:1px solid #eee;
+}
+
+.seo-modal-footer button{
+    border:none;
+    padding:10px 22px;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:600;
+    color: #FFF;
+  background: #3b3b3b;
+}
+
+#saveSeoUpdate{
+    background:linear-gradient(135deg,#e39a4e,#fb1b1b);
+    color:#fff;
+}
+
+</style>
+<style>
+
+.seo-modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    z-index:999999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.seo-modal-box{
+    width:100%;
+    max-width:550px;
+    background:#fff;
+    border-radius:14px;
+    overflow:hidden;
+    font-family:'Quicksand', sans-serif;
+}
+
+.seo-modal-header{
+    padding:18px 22px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid #eee;
+}
+
+.seo-modal-header h3{
+    margin:0;
+    font-size:22px;
+    font-weight:700;
+}
+
+#closeSeoModal{
+    border:none;
+    background:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+.seo-modal-body{
+    padding:22px;
+}
+
+.seo-modal-body label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+.seo-modal-body textarea,
+.seo-modal-body input{
+    width:100%;
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:12px;
+    margin-bottom:18px;
+    outline:none;
+}
+
+.seo-modal-body textarea{
+    height:120px;
+    resize:none;
+}
+
+.seo-modal-footer{
+    padding:18px 22px;
+    display:flex;
+    justify-content:flex-end;
+    gap:12px;
+    border-top:1px solid #eee;
+}
+
+.seo-modal-footer button{
+    border:none;
+    padding:10px 22px;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:600;
+    color: #FFF;
+  background: #3b3b3b;
+}
+
+#saveSeoUpdate{
+    background:linear-gradient(135deg,#e39a4e,#fb1b1b);
+    color:#fff;
+}
+
+</style>
 </head>
 <body>
-<div id="wrapper">
-<div data-src="header.html" id="header"></div>
-<div id="mainPageContent"><section class="section-wrapper home-27" style="background: url('assets/images/home-27-bg.jpg') no-repeat center center;
-">
+<div class="" id="wrapper" style="pointer-events: auto;">
+<div class="" data-src="header.html" id="header"></div>
+<div class="" id="mainPageContent"><section class="section-wrapper home-27 updateImg" id="section-mvqfx06r8q" style="background: url('assets/images/home-27-bg.jpg') no-repeat center center;
+?v=1791649322?v=1791649336?v=1791649454?v=1791649507">
 <div class="container">
 <div class="row">
 <div class="col-sm-6 home-27-content">
-<h2>Time for a New System?</h2>
-<p>Call an Air Supply today for a quote on your new home comfort system.</p>
-<a class="btn btn-white" href="#">Learn More</a>
-<a class="btn btn-outline" href="#">Contact Us</a>
+<h2 class="">Time for a New System?</h2>
+<p class="">Call an Air Supply today for a quote on your new home comfort system.</p>
+<a class="btn btn-white" href="#" style="cursor: pointer;">Learn More</a>
+<a class="btn btn-outline" href="#" style="cursor: pointer;">Contact Us</a>
 </div>
 </div>
 </div>
 </section>
-<section class="section-wrapper contact-8">
+<section class="section-wrapper contact-8" id="section-93kdjswpd4p">
 <div class="container contact-8-container">
 <div class="row contact-8-row">
 <div class="col-md-6 col-sm-12 contact-8-left">
 <div class="contact-8-left-content">
 <span class="contact-8-subtitle">We're Here To Help You</span>
 <h2 class="contact-8-title">
-<strong>Discuss</strong> Your Chemical Solution Needs
-					</h2>
+<strong class="">Discuss</strong> Your Chemical Solution required</h2>
 <p class="contact-8-text">
 						Are you looking for top-quality chemical solutions tailored to your needs?
 						Reach out to our team and let us help you find the right solution.
@@ -112,7 +519,7 @@
 <div class="row">
 <div class="col-md-6 col-sm-12">
 <div class="contact-8-form-group">
-<label for="contact-8-name">Your Name</label>
+<label class="" for="contact-8-name">Your Name</label>
 <div class="contact-8-input-wrap">
 <i class="ri-user-3-line"></i>
 <input class="form-control contact-8-input" id="contact-8-name" name="name" placeholder="Enter your name" required="" type="text"/>
@@ -121,7 +528,7 @@
 </div>
 <div class="col-md-6 col-sm-12">
 <div class="contact-8-form-group">
-<label for="contact-8-email">Email Address</label>
+<label class="" for="contact-8-email">Email Address</label>
 <div class="contact-8-input-wrap">
 <i class="ri-mail-line"></i>
 <input class="form-control contact-8-input" id="contact-8-email" name="email" placeholder="Enter your email" required="" type="email"/>
@@ -130,7 +537,7 @@
 </div>
 <div class="col-lg-12">
 <div class="contact-8-form-group">
-<label for="contact-8-message">Your Message</label>
+<label class="" for="contact-8-message">Your Message</label>
 <div class="contact-8-input-wrap contact-8-textarea-wrap">
 <i class="ri-chat-3-line"></i>
 <textarea class="form-control contact-8-input" id="contact-8-message" name="message" placeholder="Tell us about your requirements" required="" rows="5"></textarea>
@@ -139,7 +546,7 @@
 </div>
 <div class="col-lg-12">
 <button class="btn contact-8-submit" onclick="sendEmailDataToGitHub()" type="button">
-<span>Get a Solution</span>
+<span class="">Get a Solution</span>
 <i class="ri-arrow-right-line"></i>
 </button>
 </div>
@@ -156,7 +563,7 @@
 </div>
 </section>
 </div>
-<div data-src="footer.html" id="footer"></div>
+<div class="" data-src="footer.html" id="footer"></div>
 </div>
 <script src="assets/js/jquery.js"></script>
 <script src="assets/js/middle-section.js"></script>
@@ -225,5 +632,4 @@
                         });
                     </script>
 <script src="assets/js/common_js/image_uploader.js"></script>
-</body>
-</html>
+</body></html>
