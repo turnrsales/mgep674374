@@ -1,0 +1,104 @@
+<header class="header-32" id="page-header">
+<div class="header-32-top-bar">
+<div class="container">
+<div class="row">
+<div class="col-sm-8 col-xs-12">
+<ul class="list-inline header-32-bar-list">
+<li>
+<i class="ri-phone-line"></i><span class="client_mobile">+91 888 888 8888</span>
+</li>
+<li class="hidden-xs">
+<span class="sep">|</span>
+<i class="ri-map-pin-line"></i> Address: <span class="client_address">1215, CP Street,
+								Mumbai</span>
+</li>
+</ul>
+</div>
+<div class="col-sm-4 col-xs-12 text-right">
+<ul class="list-inline header-32-bar-list">
+<li>
+<i class="ri-mail-line"></i> Email: <span class="client_email">info@chartered.com</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="header-32-holder">
+<div class="container">
+<div class="row">
+<div class="col-xs-6 col-sm-3">
+<a class="header-32-logo" href="index.html">
+<img alt="FinAdviser" src="assets/images/logo-header-32.png"/>
+</a>
+</div>
+<div class="col-xs-6 col-sm-9">
+<nav class="navbar navbar-default header-32-navbar" role="navigation">
+<div class="navbar-header">
+<button aria-expanded="false" class="navbar-toggle collapsed" data-target="#dynamic-header" data-toggle="collapse" type="button">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+</div>
+<div class="collapse navbar-collapse" id="dynamic-header"><ul class="nav navbar-nav navbar-right main-navigation text-uppercase font-lato"><li><a href="index.html">Home</a></li><li><a href="About_Us.html">About Us</a></li><li><a href="Services.html">Services</a></li><li><a href="Our_Team.html">Our Team</a></li><li><a href="Resources.html">Resources</a></li><li><a href="Contact_Us.html">Contact Us</a></li></ul></div>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</header>
+<section class="header-32-hero main-header-section" style="background-image:url('assets/images/header-32-bg.jpg');">
+<div class="header-32-hero-content">
+<div class="container">
+<h1 class="header-32-hero-title">
+				Guiding Your Growth<br/>
+				with <span class="header-32-highlight">Trusted Expertise</span>
+</h1>
+<p class="header-32-hero-sub">
+				Expert CA committed to tax planning, auditing, and compliance.<br/>
+				Let us simplify your finances and help your business grow.
+			</p>
+<a class="btn header-32-btn-primary" href="#">
+				Get Started <i class="ri-arrow-right-line"></i>
+</a>
+</div>
+</div>
+</section>
+<script>
+	$(function () {
+
+		var $header = $('#page-header');
+		var heroHeight = $('.header-32-hero').outerHeight();
+
+		$(window).on('scroll', function () {
+			if ($(this).scrollTop() >= heroHeight) {
+				$header.addClass('header-32--sticky');
+			} else {
+				$header.removeClass('header-32--sticky');
+			}
+		});
+
+		$(window).on('resize', function () {
+			heroHeight = $('.header-32-hero').outerHeight();
+		});
+
+		if ($(window).scrollTop() >= heroHeight) {
+			$header.addClass('header-32--sticky');
+		}
+
+	});
+
+</script>
+<section class="header-breadcrumb-section" style="background:url('assets/images/header-32-breadcrumb-section-bg.jpg') no-repeat center/cover;">
+<div class="container text-center">
+<h1 class="header-breadcrumb-section-title">
+<span class="Page_name">Page Name</span>
+</h1>
+<p class="header-breadcrumb-section-breadcrumb">
+<a href="index.html">Home</a> &gt;
+			<span class="Page_name">Page Name</span>
+</p>
+</div>
+</section>
